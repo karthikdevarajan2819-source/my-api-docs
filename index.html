@@ -3,16 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <title>API Documentation</title>
-    <link rel="stylesheet" href="https://unpkg.com" />
+    <!-- Switched from unpkg to jsdelivr CDN -->
+    <link rel="stylesheet" href="https://jsdelivr.net" />
     <style>body { margin: 0; padding: 0; }</style>
 </head>
 <body>
     <div id="swagger-ui"></div>
-    <script src="https://unpkg.com"></script>
+    <!-- Switched from unpkg to jsdelivr CDN -->
+    <script src="https://jsdelivr.net"></script>
     <script>
         window.onload = function() {
             SwaggerUIBundle({
-                url: './openapi.json', // Matches your JSON file name exactly
+                url: './openapi.json',
                 dom_id: '#swagger-ui',
                 deepLinking: true,
                 presets: [
