@@ -3,24 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <title>API Documentation</title>
-    <!-- 1. Load the CSS Stylesheet -->
-    <link rel="stylesheet" href="https://jsdelivr.net" />
+    <!-- Switched to Cloudflare cdnjs to bypass network blocks -->
+    <link rel="stylesheet" href="https://cloudflare.com" />
     <style>
         body { margin: 0; padding: 0; }
-        /* Forces the container to be visible */
         #swagger-ui { min-height: 100vh; background: #fff; }
     </style>
 </head>
 <body>
 
-    <!-- 2. The target element MUST be placed before the initialization script -->
     <div id="swagger-ui"></div>
 
-    <!-- 3. Load the Javascript Assets -->
-    <script src="https://jsdelivr.net"></script>
-    <script src="https://jsdelivr.net"></script>
+    <!-- Switched JS to Cloudflare cdnjs -->
+    <script src="https://cloudflare.com"></script>
+    <script src="https://cloudflare.com"></script>
 
-    <!-- 4. Initialize Swagger UI immediately -->
     <script>
         const ui = SwaggerUIBundle({
             url: './openapi.json',
