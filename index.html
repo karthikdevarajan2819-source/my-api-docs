@@ -3,25 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <title>API Documentation</title>
-    <!-- Switched from unpkg to jsdelivr CDN -->
+    <!-- 1. Load the CSS Stylesheet -->
     <link rel="stylesheet" href="https://jsdelivr.net" />
-    <style>body { margin: 0; padding: 0; }</style>
+    <style>
+        body { margin: 0; padding: 0; }
+        /* Forces the container to be visible */
+        #swagger-ui { min-height: 100vh; background: #fff; }
+    </style>
 </head>
 <body>
+
+    <!-- 2. The target element MUST be placed before the initialization script -->
     <div id="swagger-ui"></div>
-    <!-- Switched from unpkg to jsdelivr CDN -->
+
+    <!-- 3. Load the Javascript Assets -->
     <script src="https://jsdelivr.net"></script>
+    <script src="https://jsdelivr.net"></script>
+
+    <!-- 4. Initialize Swagger UI immediately -->
     <script>
-        window.onload = function() {
-            SwaggerUIBundle({
-                url: './openapi.json',
-                dom_id: '#swagger-ui',
-                deepLinking: true,
-                presets: [
-                    SwaggerUIBundle.presets.apis
-                ]
-            });
-        };
+        const ui = SwaggerUIBundle({
+            url: './openapi.json',
+            dom_id: '#swagger-ui',
+            deepLinking: true,
+            presets: [
+                SwaggerUIBundle.presets.apis,
+                SwaggerUIStandalonePreset
+            ],
+            layout: "BaseLayout"
+        });
     </script>
 </body>
 </html>
