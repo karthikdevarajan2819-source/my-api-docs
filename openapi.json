@@ -1,0 +1,131 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Record Schema",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "https://api.example.com"
+    }
+  ],
+  "paths": {
+    "/records": {
+      "get": {
+        "summary": "List record records",
+        "operationId": "listRecords",
+        "responses": {
+          "200": {
+            "description": "A list of record records",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RecordList"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "summary": "Create a record",
+        "operationId": "createRecord",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Record"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "record created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Record"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Record": {
+        "type": "object",
+        "properties": {
+          "Series_reference": {
+            "type": "string"
+          },
+          "Period": {
+            "type": "number"
+          },
+          "Data_value": {
+            "type": "integer"
+          },
+          "Suppressed": {
+            "type": "string",
+            "nullable": true
+          },
+          "STATUS": {
+            "type": "string"
+          },
+          "UNITS": {
+            "type": "string"
+          },
+          "Magnitude": {
+            "type": "integer"
+          },
+          "Subject": {
+            "type": "string"
+          },
+          "Group": {
+            "type": "string"
+          },
+          "Series_title_1": {
+            "type": "string"
+          },
+          "Series_title_2": {
+            "type": "string"
+          },
+          "Series_title_3": {
+            "type": "string"
+          },
+          "Series_title_4": {
+            "type": "string",
+            "nullable": true
+          },
+          "Series_title_5": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "required": [
+          "Series_reference",
+          "Period",
+          "Data_value",
+          "STATUS",
+          "UNITS",
+          "Magnitude",
+          "Subject",
+          "Group",
+          "Series_title_1",
+          "Series_title_2",
+          "Series_title_3"
+        ]
+      },
+      "RecordList": {
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/Record"
+        }
+      }
+    }
+  }
+}
