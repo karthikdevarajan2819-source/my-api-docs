@@ -1,16 +1,25 @@
 <!DOCTYPE html>
-<html>
-  <head>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
     <title>API Documentation</title>
-    <meta charset="utf-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="https://googleapis.com|Roboto:300,400,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com" />
     <style>body { margin: 0; padding: 0; }</style>
-  </head>
-  <body>
-    <!-- Redoc Element -->
-    <redoc spec-url="./openapi-schema.json"></redoc>
-    <!-- Redoc Script -->
-    <script src="https://redoc.ly"> </script>
-  </body>
+</head>
+<body>
+    <div id="swagger-ui"></div>
+    <script src="https://unpkg.com"></script>
+    <script>
+        window.onload = function() {
+            SwaggerUIBundle({
+                url: './openapi-schema.json', // Matches your JSON file name exactly
+                dom_id: '#swagger-ui',
+                deepLinking: true,
+                presets: [
+                    SwaggerUIBundle.presets.apis
+                ]
+            });
+        };
+    </script>
+</body>
 </html>
