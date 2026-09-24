@@ -1,0 +1,119 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Paradox-Location Schema",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "https://api.example.com"
+    }
+  ],
+  "paths": {
+    "/paradox-Locations": {
+      "get": {
+        "summary": "List paradox-Location records",
+        "operationId": "listParadox-Locations",
+        "responses": {
+          "200": {
+            "description": "A list of paradox-Location records",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Paradox-LocationList"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "summary": "Create a paradox-Location",
+        "operationId": "createParadox-Location",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Paradox-Location"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "paradox-Location created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Paradox-Location"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Paradox-Location": {
+        "type": "object",
+        "properties": {
+          "Location Name": {
+            "type": "string"
+          },
+          "Location ID": {
+            "type": "integer"
+          },
+          "Country": {
+            "type": "string"
+          },
+          "Street Address": {
+            "type": "string"
+          },
+          "Suite": {
+            "type": "string",
+            "nullable": true
+          },
+          "City": {
+            "type": "string"
+          },
+          "State/Province/Region": {
+            "type": "string",
+            "nullable": true
+          },
+          "Zip Code": {
+            "type": "integer",
+            "nullable": true
+          },
+          "Timezone": {
+            "type": "string"
+          },
+          "Location Email": {
+            "type": "string",
+            "nullable": true
+          },
+          "Location Phone Number": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "required": [
+          "Location Name",
+          "Location ID",
+          "Country",
+          "Street Address",
+          "City",
+          "Timezone"
+        ]
+      },
+      "Paradox-LocationList": {
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/Paradox-Location"
+        }
+      }
+    }
+  }
+}
