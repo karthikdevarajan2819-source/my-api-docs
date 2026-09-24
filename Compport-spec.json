@@ -1,0 +1,918 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Employee Schema",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "https://api.example.com"
+    }
+  ],
+  "paths": {
+    "/employees": {
+      "get": {
+        "summary": "List employee records",
+        "operationId": "listEmployees",
+        "responses": {
+          "200": {
+            "description": "A list of employee records",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Employee"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "summary": "Create a employee",
+        "operationId": "createEmployee",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Employee"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "employee created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Employee"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Employee": {
+        "required": [
+          "approver_1",
+          "empUId",
+          "name",
+          "record_effective_date"
+        ],
+        "type": "object",
+        "properties": {
+          "empUId": {
+            "type": "string",
+            "description": "Employee Unique Identifier"
+          },
+          "company_name": {
+            "type": "string",
+            "description": "Name of the company"
+          },
+          "cost_center": {
+            "type": "string",
+            "description": "Cost Center"
+          },
+          "employee_type": {
+            "type": "string",
+            "description": "Employee Type"
+          },
+          "employee_code": {
+            "type": "string",
+            "description": "Employee Code"
+          },
+          "name": {
+            "type": "string",
+            "description": "Employee Full name"
+          },
+          "first_name": {
+            "type": "string",
+            "description": "Employee First Name"
+          },
+          "other_data_20": {
+            "type": "string",
+            "description": "Official Email ID"
+          },
+          "gender": {
+            "type": "string",
+            "description": "Gender"
+          },
+          "country": {
+            "type": "string",
+            "description": "Country"
+          },
+          "city": {
+            "type": "string",
+            "description": "City"
+          },
+          "business_level_1": {
+            "type": "string",
+            "description": "Business Unit-1 level"
+          },
+          "business_level_2": {
+            "type": "string",
+            "description": "Business Unit-2 level"
+          },
+          "business_level_3": {
+            "type": "string",
+            "description": "Business Unit-3 level"
+          },
+          "function": {
+            "type": "string",
+            "description": "Function"
+          },
+          "subfunction": {
+            "type": "string",
+            "description": "Sub Function"
+          },
+          "sub_subfunction": {
+            "type": "string",
+            "description": "Sub Sub Function"
+          },
+          "designation": {
+            "type": "string",
+            "description": "Designation/Title"
+          },
+          "grade": {
+            "type": "string",
+            "description": "Grade"
+          },
+          "level": {
+            "type": "string",
+            "description": "Level"
+          },
+          "employee_role": {
+            "type": "string",
+            "description": "Employee Role"
+          },
+          "urban_rural_classification": {
+            "type": "string",
+            "description": "Urban/Rural classification"
+          },
+          "education": {
+            "type": "string",
+            "description": "Highest Education Level"
+          },
+          "critical_talent": {
+            "type": "string",
+            "description": "Current Talent Rating"
+          },
+          "critical_position": {
+            "type": "string",
+            "description": "Critical Position Rating"
+          },
+          "special_category": {
+            "type": "string",
+            "description": "Customized Category"
+          },
+          "company_joining_date": {
+            "type": "string",
+            "description": "Date of Joining",
+            "format": "date"
+          },
+          "increment_purpose_joining_date": {
+            "type": "string",
+            "description": "Date of joining for Proration calculation on Salary review",
+            "format": "date"
+          },
+          "start_date_for_role": {
+            "type": "string",
+            "description": "Date of joining for Proration calculation on Bonus",
+            "format": "date"
+          },
+          "end_date_for_role": {
+            "type": "string",
+            "description": "End date of the role (for bonus calculation only)",
+            "format": "date"
+          },
+          "bonus_incentive_applicable": {
+            "type": "string",
+            "description": "Bonus or Sales Incentive applicability"
+          },
+          "employee_movement_into_bonus_plan": {
+            "type": "string",
+            "description": "Date of Employee Movement into Bonus Plan during the year."
+          },
+          "recently_promoted": {
+            "type": "string",
+            "description": "Recently Promoted (Yes/No)"
+          },
+          "performance_achievement": {
+            "type": "integer",
+            "description": "Performance Achievement Score (in numeric value)"
+          },
+          "rating_for_current_year": {
+            "type": "string",
+            "description": "Latest Performance Rating"
+          },
+          "record_effective_date": {
+            "type": "string",
+            "description": "Effective date of last data change",
+            "format": "date"
+          },
+          "currency": {
+            "type": "string",
+            "description": "Currency"
+          },
+          "current_base_salary": {
+            "type": "integer",
+            "description": "Current Base/Basic"
+          },
+          "current_target_bonus": {
+            "type": "integer",
+            "description": "Current target bonus"
+          },
+          "allowance_1": {
+            "type": "integer",
+            "description": "Current Target Sales Incentive"
+          },
+          "allowance_2": {
+            "type": "integer",
+            "description": "Current Target Long Term Incentive"
+          },
+          "allowance_3": {
+            "type": "integer",
+            "description": "Salary element-1"
+          },
+          "allowance_4": {
+            "type": "integer",
+            "description": "Salary element-2"
+          },
+          "allowance_5": {
+            "type": "integer",
+            "description": "Salary element-3"
+          },
+          "allowance_6": {
+            "type": "integer",
+            "description": "Salary element-4"
+          },
+          "allowance_7": {
+            "type": "integer",
+            "description": "Salary element-5"
+          },
+          "allowance_8": {
+            "type": "integer",
+            "description": "Salary element-6"
+          },
+          "allowance_9": {
+            "type": "integer",
+            "description": "Salary element-7"
+          },
+          "allowance_10": {
+            "type": "integer",
+            "description": "Salary element-8"
+          },
+          "allowance_11": {
+            "type": "integer",
+            "description": "Salary element-9"
+          },
+          "allowance_12": {
+            "type": "integer",
+            "description": "Salary element-10"
+          },
+          "allowance_13": {
+            "type": "integer",
+            "description": "Salary element-11"
+          },
+          "allowance_14": {
+            "type": "integer",
+            "description": "Salary element-12"
+          },
+          "allowance_15": {
+            "type": "integer",
+            "description": "Salary element-13"
+          },
+          "allowance_16": {
+            "type": "integer",
+            "description": "Salary element-14"
+          },
+          "allowance_17": {
+            "type": "integer",
+            "description": "Salary element-15"
+          },
+          "allowance_18": {
+            "type": "integer",
+            "description": "Salary element-16"
+          },
+          "allowance_19": {
+            "type": "integer",
+            "description": "Salary element-17"
+          },
+          "allowance_20": {
+            "type": "integer",
+            "description": "Salary element-18"
+          },
+          "allowance_21": {
+            "type": "integer",
+            "description": "Salary element-19"
+          },
+          "allowance_22": {
+            "type": "integer",
+            "description": "Salary element-20"
+          },
+          "allowance_23": {
+            "type": "integer",
+            "description": "Salary element-21"
+          },
+          "allowance_24": {
+            "type": "integer",
+            "description": "Salary element-22"
+          },
+          "allowance_25": {
+            "type": "integer",
+            "description": "Salary element-23"
+          },
+          "allowance_26": {
+            "type": "integer",
+            "description": "Salary element-24"
+          },
+          "allowance_27": {
+            "type": "integer",
+            "description": "Salary element-25"
+          },
+          "allowance_28": {
+            "type": "integer",
+            "description": "Salary element-26"
+          },
+          "allowance_29": {
+            "type": "integer",
+            "description": "Salary element-27"
+          },
+          "allowance_30": {
+            "type": "integer",
+            "description": "Salary element-28"
+          },
+          "allowance_31": {
+            "type": "integer",
+            "description": "Salary element-29"
+          },
+          "allowance_32": {
+            "type": "integer",
+            "description": "Salary element-30"
+          },
+          "allowance_33": {
+            "type": "integer",
+            "description": "Salary element-31"
+          },
+          "allowance_34": {
+            "type": "integer",
+            "description": "Salary element-32"
+          },
+          "allowance_35": {
+            "type": "integer",
+            "description": "Salary element-33"
+          },
+          "allowance_36": {
+            "type": "integer",
+            "description": "Salary element-34"
+          },
+          "allowance_37": {
+            "type": "integer",
+            "description": "Salary element-35"
+          },
+          "allowance_38": {
+            "type": "integer",
+            "description": "Salary element-36"
+          },
+          "allowance_39": {
+            "type": "integer",
+            "description": "Salary element-37"
+          },
+          "allowance_40": {
+            "type": "integer",
+            "description": "Salary element-38"
+          },
+          "allowance_41": {
+            "type": "integer",
+            "description": "Salary element-39"
+          },
+          "allowance_42": {
+            "type": "integer",
+            "description": "Salary element-40"
+          },
+          "allowance_43": {
+            "type": "integer",
+            "description": "Salary element-41"
+          },
+          "allowance_44": {
+            "type": "integer",
+            "description": "Salary element-42"
+          },
+          "allowance_45": {
+            "type": "integer",
+            "description": "Salary element-43"
+          },
+          "allowance_46": {
+            "type": "integer",
+            "description": "Salary element-44"
+          },
+          "allowance_47": {
+            "type": "integer",
+            "description": "Salary element-45"
+          },
+          "allowance_48": {
+            "type": "integer",
+            "description": "Salary element-46"
+          },
+          "allowance_49": {
+            "type": "integer",
+            "description": "Salary element-47"
+          },
+          "allowance_50": {
+            "type": "integer",
+            "description": "Salary element-48"
+          },
+          "allowance_51": {
+            "type": "integer",
+            "description": "Salary element-49"
+          },
+          "allowance_52": {
+            "type": "integer",
+            "description": "Salary element-50"
+          },
+          "allowance_53": {
+            "type": "integer",
+            "description": "Salary element-51"
+          },
+          "allowance_54": {
+            "type": "integer",
+            "description": "Salary element-52"
+          },
+          "allowance_55": {
+            "type": "integer",
+            "description": "Salary element-53"
+          },
+          "allowance_56": {
+            "type": "integer",
+            "description": "Salary element-54"
+          },
+          "allowance_57": {
+            "type": "integer",
+            "description": "Salary element-55"
+          },
+          "allowance_58": {
+            "type": "integer",
+            "description": "Salary element-56"
+          },
+          "allowance_59": {
+            "type": "integer",
+            "description": "Salary element-57"
+          },
+          "allowance_60": {
+            "type": "integer",
+            "description": "Salary element-58"
+          },
+          "allowance_61": {
+            "type": "integer",
+            "description": "Salary element-59"
+          },
+          "allowance_62": {
+            "type": "integer",
+            "description": "Salary element-60"
+          },
+          "allowance_63": {
+            "type": "integer",
+            "description": "Salary element-61"
+          },
+          "allowance_64": {
+            "type": "integer",
+            "description": "Salary element-62"
+          },
+          "allowance_65": {
+            "type": "integer",
+            "description": "Salary element-63"
+          },
+          "allowance_66": {
+            "type": "integer",
+            "description": "Salary element-64"
+          },
+          "allowance_67": {
+            "type": "integer",
+            "description": "Salary element-65"
+          },
+          "allowance_68": {
+            "type": "integer",
+            "description": "Salary element-66"
+          },
+          "allowance_69": {
+            "type": "integer",
+            "description": "Salary element-67"
+          },
+          "allowance_70": {
+            "type": "integer",
+            "description": "Salary element-68"
+          },
+          "total_compensation": {
+            "type": "string",
+            "description": "Current Total Cost To Company"
+          },
+          "increment_applied_on": {
+            "type": "integer",
+            "description": "Current Fixed Salary"
+          },
+          "job_code": {
+            "type": "string",
+            "description": "Pay Range Data matching job code"
+          },
+          "job_name": {
+            "type": "string",
+            "description": "Matched job name"
+          },
+          "job_level": {
+            "type": "string",
+            "description": "Matched job level"
+          },
+          "approver_1": {
+            "type": "string",
+            "description": "Approver-1 Unique ID"
+          },
+          "approver_2": {
+            "type": "string",
+            "description": "Approver-2 Unique ID"
+          },
+          "approver_3": {
+            "type": "string",
+            "description": "Approver-3 Unique ID"
+          },
+          "approver_4": {
+            "type": "string",
+            "description": "Approver-4 Unique ID"
+          },
+          "manager_name": {
+            "type": "string",
+            "description": "Manager's Unique ID (Can be different than approver-1)"
+          },
+          "authorised_signatory_for_letter": {
+            "type": "string",
+            "description": "Authorised signatory Unique ID for letters"
+          },
+          "authorised_signatorys_title_for_letter": {
+            "type": "string",
+            "description": "Authorised signatory's title for letters"
+          },
+          "hr_authorised_signatory_for_letter": {
+            "type": "string",
+            "description": "HR Authorised signatory Unique ID for letters"
+          },
+          "hr_authorised_signatorys_title_for_letter": {
+            "type": "string",
+            "description": "HR Authorised signatory's title for letters"
+          },
+          "other_data_21": {
+            "type": "string",
+            "description": "Global HRBP's Unique ID"
+          },
+          "other_data_22": {
+            "type": "string",
+            "description": "Functional HRBP Unique ID"
+          },
+          "other_data_23": {
+            "type": "string",
+            "description": "HR Partner-1 Unique ID"
+          },
+          "other_data_24": {
+            "type": "string",
+            "description": "HR Partner-2 Unique ID"
+          },
+          "teeth_tail_ratio": {
+            "type": "string",
+            "description": "Teeth/Tail Ratio"
+          },
+          "previous_talent_rating": {
+            "type": "string",
+            "description": "Previous Talent Rating"
+          },
+          "promoted_in_2_yrs": {
+            "type": "string",
+            "description": "Last Promotion Date"
+          },
+          "engagement_level": {
+            "type": "string",
+            "description": "Potential Rating"
+          },
+          "successor_identified": {
+            "type": "string",
+            "description": "Successor Identified"
+          },
+          "readyness_level": {
+            "type": "string",
+            "description": "Readyness level"
+          },
+          "other_data_9": {
+            "type": "string",
+            "description": "Customized Data-9"
+          },
+          "other_data_10": {
+            "type": "string",
+            "description": "Customized Data-10"
+          },
+          "other_data_11": {
+            "type": "string",
+            "description": "Customized Data-11"
+          },
+          "other_data_12": {
+            "type": "string",
+            "description": "Customized Data-12"
+          },
+          "other_data_13": {
+            "type": "string",
+            "description": "Customized Data-13"
+          },
+          "other_data_14": {
+            "type": "string",
+            "description": "Customized Data-14"
+          },
+          "other_data_15": {
+            "type": "string",
+            "description": "Customized Data-15"
+          },
+          "other_data_16": {
+            "type": "string",
+            "description": "Customized Data-16"
+          },
+          "Other_data_17": {
+            "type": "string",
+            "description": "Customized Data-17"
+          },
+          "other_data_18": {
+            "type": "string",
+            "description": "Customized Data-18"
+          },
+          "other_data_19": {
+            "type": "string",
+            "description": "Customized Data-19"
+          },
+          "termination_date": {
+            "type": "string",
+            "description": "Termination Date",
+            "format": "date"
+          },
+          "termination_category": {
+            "type": "string",
+            "description": "Termination Category"
+          },
+          "termination_reason": {
+            "type": "string",
+            "description": "Termination Reason"
+          },
+          "lop_bonus": {
+            "type": "integer",
+            "description": "Loss of Pay input for Bonus"
+          },
+          "market_base_salary_level_min": {
+            "type": "integer",
+            "description": "Pay Range Base-1"
+          },
+          "market_base_salary_level_1": {
+            "type": "integer",
+            "description": "Pay Range Base-2"
+          },
+          "market_base_salary_level_2": {
+            "type": "integer",
+            "description": "Pay Range Base-3"
+          },
+          "market_base_salary_level_3": {
+            "type": "integer",
+            "description": "Pay Range Base-4"
+          },
+          "market_base_salary_level_4": {
+            "type": "integer",
+            "description": "Pay Range Base-5"
+          },
+          "market_base_salary_level_5": {
+            "type": "integer",
+            "description": "Pay Range Base-6"
+          },
+          "market_base_salary_level_6": {
+            "type": "integer",
+            "description": "Pay Range Base-7"
+          },
+          "market_base_salary_level_7": {
+            "type": "integer",
+            "description": "Pay Range Base-8"
+          },
+          "market_base_salary_level_8": {
+            "type": "integer",
+            "description": "Pay Range Base-9"
+          },
+          "market_base_salary_level_9": {
+            "type": "integer",
+            "description": "Pay Range Base-10"
+          },
+          "market_base_salary_level_max": {
+            "type": "integer",
+            "description": "Pay Range Base-11"
+          },
+          "market_total_salary_level_min": {
+            "type": "integer",
+            "description": "Pay Range Total Comp-1"
+          },
+          "market_total_salary_level_1": {
+            "type": "integer",
+            "description": "Pay Range Total Comp-2"
+          },
+          "market_total_salary_level_2": {
+            "type": "integer",
+            "description": "Pay Range Total Comp-3"
+          },
+          "market_total_salary_level_3": {
+            "type": "integer",
+            "description": "Pay Range Total Comp-4"
+          },
+          "market_total_salary_level_4": {
+            "type": "integer",
+            "description": "Pay Range Total Comp-5"
+          },
+          "market_total_salary_level_5": {
+            "type": "integer",
+            "description": "Pay Range Total Comp-6"
+          },
+          "market_total_salary_level_6": {
+            "type": "integer",
+            "description": "Pay Range Total Comp-7"
+          },
+          "market_total_salary_level_7": {
+            "type": "integer",
+            "description": "Pay Range Total Comp-8"
+          },
+          "market_total_salary_level_8": {
+            "type": "integer",
+            "description": "Pay Range Total Comp-9"
+          },
+          "market_total_salary_level_9": {
+            "type": "integer",
+            "description": "Pay Range Total Comp-10"
+          },
+          "market_total_salary_level_max": {
+            "type": "integer",
+            "description": "Pay Range Total Comp-11"
+          },
+          "market_target_salary_level_min": {
+            "type": "integer",
+            "description": "Pay Range Total Target Comp-1"
+          },
+          "market_target_salary_level_1": {
+            "type": "integer",
+            "description": "Pay Range Total Target Comp-2"
+          },
+          "market_target_salary_level_2": {
+            "type": "integer",
+            "description": "Pay Range Total Target Comp-3"
+          },
+          "market_target_salary_level_3": {
+            "type": "integer",
+            "description": "Pay Range Total Target Comp-4"
+          },
+          "market_target_salary_level_4": {
+            "type": "integer",
+            "description": "Pay Range Total Target Comp-5"
+          },
+          "market_target_salary_level_5": {
+            "type": "integer",
+            "description": "Pay Range Total Target Comp-6"
+          },
+          "market_target_salary_level_6": {
+            "type": "integer",
+            "description": "Pay Range Total Target Comp-7"
+          },
+          "market_target_salary_level_7": {
+            "type": "integer",
+            "description": "Pay Range Total Target Comp-8"
+          },
+          "market_target_salary_level_8": {
+            "type": "integer",
+            "description": "Pay Range Total Target Comp-9"
+          },
+          "market_target_salary_level_9": {
+            "type": "integer",
+            "description": "Pay Range Total Target Comp-10"
+          },
+          "market_target_salary_sevel_max": {
+            "type": "integer",
+            "description": "Pay Range Total Target Comp-11"
+          },
+          "minimum_wage": {
+            "type": "integer",
+            "description": "Minimum Wage Applicability"
+          },
+          "rating_for_last_year": {
+            "type": "string",
+            "description": "Performance Rating for previous year"
+          },
+          "rating_for_2nd_last_year": {
+            "type": "string",
+            "description": "Performance Rating for 2nd last year"
+          },
+          "rating_for_3rd_last_year": {
+            "type": "string",
+            "description": "Performance Rating for 3rd last year"
+          },
+          "rating_for_4th_last_year": {
+            "type": "string",
+            "description": "Performance Rating for 4th last year"
+          },
+          "rating_for_5th_last_year": {
+            "type": "string",
+            "description": "Performance Rating for 5th last year"
+          },
+          "effective_date_of_last_salary_increase": {
+            "type": "string",
+            "description": "Effective date of Last Salary increase",
+            "format": "date"
+          },
+          "effective_date_of_2nd_last_salary_increase": {
+            "type": "string",
+            "description": "Effective date of 2nd last Salary increase",
+            "format": "date"
+          },
+          "effective_date_of_3rd_last_salary_increase": {
+            "type": "string",
+            "description": "Effective date of 3rd last Salary increase",
+            "format": "date"
+          },
+          "effective_date_of_4th_last_salary_increase": {
+            "type": "string",
+            "description": "Effective date of 4th Last Salary increase",
+            "format": "date"
+          },
+          "effective_date_of_5th_last_salary_increase": {
+            "type": "string",
+            "description": "Effective date of 5th Last Salary increase",
+            "format": "date"
+          },
+          "salary_after_last_increase": {
+            "type": "integer",
+            "description": "Last year Variable Pay"
+          },
+          "salary_after_2nd_last_increase": {
+            "type": "integer",
+            "description": "2nd last year Variable Pay"
+          },
+          "salary_after_3rd_last_increase": {
+            "type": "integer",
+            "description": "3rd last year Variable Pay"
+          },
+          "salary_after_4th_last_increase": {
+            "type": "integer",
+            "description": "4th last year Variable Pay"
+          },
+          "salary_after_5th_last_increase": {
+            "type": "integer",
+            "description": "5th last year Variable Pay"
+          },
+          "total_salary_after_last_increase": {
+            "type": "integer",
+            "description": "Total Salary after last increase"
+          },
+          "total_salary_after_2nd_last_increase": {
+            "type": "integer",
+            "description": "Total Salary after 2nd last increase"
+          },
+          "total_salary_after_3rd_last_increase": {
+            "type": "integer",
+            "description": "Total Salary after 3rd last increase"
+          },
+          "total_salary_after_4th_last_increase": {
+            "type": "integer",
+            "description": "Total Salary after 4th last increase"
+          },
+          "total_salary_after_5th_last_increase": {
+            "type": "integer",
+            "description": "Total Salary after 5th last increase"
+          },
+          "target_salary_after_last_increase": {
+            "type": "integer",
+            "description": "Last year LTI"
+          },
+          "target_salary_after_2nd_last_increase": {
+            "type": "integer",
+            "description": "2nd last year LTI"
+          },
+          "target_salary_after_3rd_last_increase": {
+            "type": "integer",
+            "description": "3rd last year LTI"
+          },
+          "target_salary_after_4th_last_increase": {
+            "type": "integer",
+            "description": "4th last year LTI"
+          },
+          "target_salary_after_5th_last_increase": {
+            "type": "integer",
+            "description": "5th last year LTI"
+          }
+        },
+        "xml": {
+          "name": "Employee"
+        }
+      }
+    }
+  }
+}
