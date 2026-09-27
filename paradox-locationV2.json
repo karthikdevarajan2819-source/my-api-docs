@@ -1,0 +1,114 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Record Schema",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "https://api.example.com"
+    }
+  ],
+  "paths": {
+    "/records": {
+      "get": {
+        "summary": "List record records",
+        "operationId": "listRecords",
+        "responses": {
+          "200": {
+            "description": "A list of record records",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RecordList"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "summary": "Create a record",
+        "operationId": "createRecord",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Record"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "record created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Record"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Record": {
+        "type": "object",
+        "properties": {
+          "Location Description": {
+            "type": "string",
+            "nullable": true
+          },
+          "Location Code": {
+            "type": "string",
+            "nullable": true
+          },
+          "Country": {
+            "type": "string",
+            "nullable": true
+          },
+          "Street Address": {
+            "type": "string",
+            "nullable": true
+          },
+          "Suite": {
+            "type": "string",
+            "nullable": true
+          },
+          "City": {
+            "type": "string",
+            "nullable": true
+          },
+          "State/Province/Region": {
+            "type": "string",
+            "nullable": true
+          },
+          "Zip Code": {
+            "type": "string",
+            "nullable": true
+          },
+          "Location Email": {
+            "type": "string",
+            "nullable": true
+          },
+          "Location Phone Number": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "required": []
+      },
+      "RecordList": {
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/Record"
+        }
+      }
+    }
+  }
+}
