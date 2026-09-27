@@ -60,7 +60,7 @@
       "Record": {
         "type": "object",
         "properties": {
-          "Location Description": {
+          "Location Full Description": {
             "type": "string",
             "nullable": true
           },
@@ -88,6 +88,10 @@
             "type": "string",
             "nullable": true
           },
+          "District": {
+            "type": "string",
+            "nullable": true
+          },
           "Zip Code": {
             "type": "string",
             "nullable": true
@@ -96,7 +100,7 @@
             "type": "string",
             "nullable": true
           },
-          "Location Phone Number": {
+          "Location Fax": {
             "type": "string",
             "nullable": true
           }
